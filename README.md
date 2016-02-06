@@ -8,7 +8,7 @@ virtualenv env
 . env/bin/activate
 
 # Install crul
-pip install git+git://github.com/icio/crul@0.0.1\#egg=crul
+pip install git+git://github.com/icio/crul\#egg=crul
 ```
 
 ## Usage
