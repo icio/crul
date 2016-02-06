@@ -33,9 +33,11 @@ Examples:
         $ crul --replay me.scrape --sitemap > me.xml
 
     Scrape only 3 pages deep with a single worker, leaving 2 seconds between
-    each subsequent request to the site, w/o anything under /developer/flash:
+    each subsequent request to the site, w/o anything under /developer/flash
+    or /forum/:
 
-        $ crul -d 3 -w 1 -t 2 https://www.kirupa.com/ -i developer/flash
+        $ crul -d 3 -w 1 -t 2 https://www.kirupa.com/ \
+            -i developer/flash -i forum/
 
     Ignore robots.txt and grab everything we can, as fast as we can, with 5
     workers, from <url>:
