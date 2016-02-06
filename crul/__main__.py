@@ -65,7 +65,7 @@ import requests
 from docopt import docopt
 from requests.exceptions import RequestException
 
-from crul import JSONPageSerialiser
+from crul import JSONSerialiser
 from crul.output import output_dot, output_json, output_sitemap, output_text
 from crul.parse import PageParser
 from crul.scrape import site_crawl
@@ -148,10 +148,10 @@ def main_crawl(args):
 
 
 def main_replay(replay_file):
-    serialiser = JSONPageSerialiser()
+    serialiser = JSONSerialiser()
     with open(replay_file, 'r') as fh:
         for line in iter(fh):
-            yield serialiser.load(line)
+            yield serialiser.load_page(line)
 
 
 def fetch_robots_txt(url, session=None):

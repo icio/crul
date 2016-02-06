@@ -1,6 +1,8 @@
 from cgi import escape as html_escape
 from textwrap import dedent
 
+from crul import JSONSerialiser
+
 
 def output_text(crawl):
     for n, page in enumerate(crawl):
@@ -27,7 +29,9 @@ def output_text(crawl):
 
 
 def output_json(crawl):
-    raise NotImplementedError()  # TODO: Implement me.
+    serialiser = JSONSerialiser()
+    for page in crawl:
+        print serialiser.dump_page(page)
 
 
 def output_sitemap(crawl):
