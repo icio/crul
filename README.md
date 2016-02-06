@@ -21,16 +21,16 @@ Examples:
 
     A human-readable summary of the (rather outdated) pages on my website:
 
-        $ crul --text http://www.paul-scott.com/
+        $ crul http://www.paul-scott.com/
 
     Record the results of scraping into a file:
 
-        $ crul http://www.paul-scott.com/ > me.scrape
+        $ crul http://www.paul-scott.com/ --json > me.scrape
 
     Render a graph, and a sitemap of what we just scraped:
 
         $ crul --replay me.scrape --dot | dot -Tpng > me.png
-        $ crul --replay me.scrape --sitemap > me.xml
+        $ crul --replay me.scrape --sitemap > sitemap.xml
 
     Scrape only 3 pages deep with a single worker, leaving 2 seconds between
     each subsequent request to the site, w/o anything under /developer/flash
