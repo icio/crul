@@ -20,6 +20,7 @@ setup(
         'docopt==0.6.2',
         'requests==2.9.1',
         'sloq==0.2',
+        'lxml==3.5.0',
     ],
     tests_requires=[
         'responses==0.5.1',
