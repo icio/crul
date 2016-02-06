@@ -28,13 +28,11 @@ Examples:
         $ crul --yolo -w 5 <url>
 
 Usage:
-    crul
     crul (<url> [options] | --replay=<file>)
             [--disallow=<path>]...
             [--dot | --sitemap | --text | --json]
             [-v|-q] [--log-file=<log-file>]
-    crul --help
-    crul --version
+    crul [--help | --version]
 
 Options:
        --dot              Output in dot format.
