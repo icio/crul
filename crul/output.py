@@ -1,3 +1,7 @@
+from cgi import escape as html_escape
+from textwrap import dedent
+
+
 def output_text(crawl):
     for n, page in enumerate(crawl):
         print (
@@ -27,7 +31,15 @@ def output_json(crawl):
 
 
 def output_sitemap(crawl):
-    raise NotImplementedError()  # TODO: Implement me.
+    print dedent('''
+        <?xml version="1.0" encoding="utf-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    ''').strip()
+    for page in crawl:
+        print '  <url><loc>%s</loc></url>' % html_escape(page.url or page.canonical_url)
+    print '</urlset>'
 
 
 def output_dot(crawl):
