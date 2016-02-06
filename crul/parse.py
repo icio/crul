@@ -16,9 +16,10 @@ class PageParser(object):
             return self.parse_html(resp, depth=depth)
         else:
             return Page(
-                url=resp.request.url, response=resp, request=resp.request,
-                fetched=True, canonical_url=None, title=None, no_index=True,
-                links=[], assets=[], depth=depth,
+                url=resp.request.url, canonical_url=resp.request.url,
+                headers=resp.headers,
+                fetched=True, title=None, no_index=True, links=[], assets=[],
+                depth=depth,
             )
 
     def parse_html(self, resp, depth=0):
@@ -27,9 +28,8 @@ class PageParser(object):
 
         return Page(
             url=resp.request.url,
-            response=resp,
-            request=resp.request,
             fetched=True,
+            headers=resp.headers,
             canonical_url=self.parse_canonical_url(resp, soup, base),
             title=self.parse_title(resp, soup, base),
             no_index=self.parse_no_index(resp, soup, base),

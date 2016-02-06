@@ -7,8 +7,8 @@ Task = namedtuple('Task', [
 ])
 
 Page = namedtuple('Page', [
-    'url', 'canonical_url', 'fetched', 'request', 'response',
-    'no_index', 'links', 'assets', 'title', 'depth'
+    'url', 'canonical_url', 'fetched', 'headers', 'no_index', 'links',
+    'assets', 'title', 'depth'
 ])
 
 Link = namedtuple('Link', [
