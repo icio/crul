@@ -44,7 +44,3 @@ def output_sitemap(crawl):
     for page in crawl:
         print '  <url><loc>%s</loc></url>' % html_escape(page.url or page.canonical_url)
     print '</urlset>'
-
-
-def output_dot(crawl):
-    raise NotImplementedError()  # TODO: Implement me.

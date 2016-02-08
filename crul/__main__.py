@@ -37,7 +37,6 @@ Usage:
     crul [--help | --version]
 
 Options:
-       --dot              Output in dot format.
        --sitemap          Output in XML sitemap format.
        --json             Output in JSON format. [default]
        --text             Output in human-readable text format.
@@ -66,7 +65,7 @@ from docopt import docopt
 from requests.exceptions import RequestException
 
 from crul import JSONSerialiser
-from crul.output import output_dot, output_json, output_sitemap, output_text
+from crul.output import output_json, output_sitemap, output_text
 from crul.parse import PageParser
 from crul.scrape import site_crawl
 from crul.traverse import DisallowedSet, PageTraverser
@@ -106,12 +105,16 @@ def main(args=None):
         crawl = main_replay(args['--replay'])
 
     # Output.
+    #
+    # Originally the plan was to generate a graphic of all of the inter-
+    # connected pages, but after playing about with Graphviz for a while I
+    # wasn't able to make anything pretty, so I've not included it. This was
+    # the motivation for --replay: I was just going to generate equivalent
+    # JSON output in gergle and pipe through this program.
     if args['--json']:
         output_json(crawl)
     elif args['--sitemap']:
         output_sitemap(crawl)
-    elif args['--dot']:
-        output_dot(crawl)
     else:
         output_text(crawl)
 

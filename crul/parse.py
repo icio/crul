@@ -130,7 +130,7 @@ class PageParser(object):
                 soup.find_all('iframe', src=True)):
             yield link(asset.name, asset['src'])
         for obj in soup.find_all('object', data=True):
-            yield link('object', object['data'])
+            yield link('object', obj['data'])
         for lnk in soup.find_all('link', rel=True, href=True):
             yield link(
                 lnk['rel'] if hasattr(lnk['rel'], 'join') else ','.join(lnk['rel']),
