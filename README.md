@@ -1,5 +1,7 @@
 # Crul :see_no_evil: :hear_no_evil: :speak_no_evil: 
 
+A silly little web crawler, not dissimilar to [`gergle`](https://github.com/icio/gergle).
+
 ## Installation
 
 ```bash
@@ -106,3 +108,9 @@ Options:
                   |
                   v iter([Page, ...])
 ```
+
+## Limitations
+
+* Query-strings being used to uniquely identify a page means that links to pages with junk query strings risk causing a lot of duplication.
+* None of the output formats conflate pages based on their canonical-url.
+* Python's GIL.

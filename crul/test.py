@@ -1,37 +1,10 @@
-import argparse
 import unittest
-from textwrap import dedent
 
 import responses
 import requests
 
-from crul.__main__ import (
-    url_type,
-    fetch_robots_txt,
-    parse_crawl_delay,
-    DisallowedSet,
-    trim_fragment,
-)
-
-
-class URLTypeTest(unittest.TestCase):
-    def test_empty(self):
-        with self.assertRaises(argparse.ArgumentTypeError):
-            url_type('')
-
-    def test_mailto(self):
-        with self.assertRaises(argparse.ArgumentTypeError):
-            url_type('mailto:paul')
-
-    def test_local(self):
-        with self.assertRaises(argparse.ArgumentTypeError):
-            url_type('https:///path')
-
-    def test_http(self):
-        self.assertEquals(
-            url_type('https://www.google.com/#frag'),
-            'https://www.google.com/#frag'
-        )
+from crul.__main__ import fetch_robots_txt, parse_crawl_delay
+from crul.traverse import DisallowedSet, trim_fragment
 
 
 class FetchRobotsTxtTest(unittest.TestCase):

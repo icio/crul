@@ -22,10 +22,11 @@ setup(
         'sloq==0.2',
         'lxml==3.5.0',
     ],
-    tests_requires=[
+    tests_require=[
+        'setuptools==20.0',
         'responses==0.5.1',
     ],
-    # test_suite="tests",
+    test_suite="crul.test",
     license="MIT",
     keywords=['crawl', 'scrape'],
     classifiers=[],
