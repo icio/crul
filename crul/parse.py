@@ -43,7 +43,7 @@ class PageParser(object):
 
     def parse_base(self, resp, soup):
         try:
-            return soup.base['href']
+            return urljoin(resp.url, soup.base['href'])
         except (TypeError, AttributeError):
             return resp.url
 

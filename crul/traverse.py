@@ -87,5 +87,5 @@ class PageTraverser(object):
                               link.href, link.referrer)
                 continue
 
-            self.queue_url(pending, url=link.href, depth=link.depth,
+            self.queue_url(pending, url=url.geturl(), depth=link.depth,
                            referrer=link.referrer)
