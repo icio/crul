@@ -29,9 +29,8 @@ Examples:
 
         $ crul http://www.paul-scott.com/ --json > me.scrape
 
-    Render a graph, and a sitemap of what we just scraped:
+    Render a sitemap of what we just scraped:
 
-        $ crul --replay me.scrape --dot | dot -Tpng > me.png
         $ crul --replay me.scrape --sitemap > sitemap.xml
 
     Scrape only 3 pages deep with a single worker, leaving 2 seconds between
